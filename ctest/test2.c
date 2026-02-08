@@ -25,15 +25,46 @@ int main()
     else printf("大端\n");
     return 0;
 }
-#endif
 int main()
 {
-int n = 9;
-float *pFloat = (float *)&n;
-printf("n的值为：%d\n",n);
-printf("*pFloat的值为：%f\n",*pFloat);
-*pFloat = 9.0;
-printf("num的值为：%d\n",n);
-printf("*pFloat的值为：%f\n",*pFloat);
-return 0;
+    int n = 9;
+    float *pFloat = (float *)&n;
+    printf("n的值为：%d\n",n);
+    printf("*pFloat的值为：%f\n",*pFloat);
+    *pFloat = 9.0;
+    printf("num的值为：%d\n",n);
+    printf("*pFloat的值为：%f\n",*pFloat);
+    return 0;
+}
+
+int main()
+{
+	char s[10] = "4k";
+	int a;
+	char c;
+	sscanf(s, "%d%c", &a, &c);
+	printf("%d %c\n", a, c);
+        printf("%s\n",s);
+	return 0;
+}
+int main()
+{
+	char s[10] = { 0 };
+	int a = 42;
+	char c='a';
+	sprintf(s, "%d %c\n", a, c);
+	printf("%s\n", s);
+	return 0;
+}
+#endif
+
+int main()
+{
+    FILE* f = fopen("data.txt","r");
+    char s[10];
+    while(fgets(s,10,f))
+    {
+        printf("%s ",a);
+    }
+    return 0;
 }
