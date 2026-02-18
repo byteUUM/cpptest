@@ -6,8 +6,6 @@
 #include <arpa/inet.h>
 #include <thread>
 #include "InetAddr.hpp"
-#include "Log.hpp"
-using namespace my_log;
 void Write(int socketfd, InetAddr &addr)
 {
     string str="online";
@@ -43,12 +41,12 @@ int main(int argc, char *argv[])
     int socketfd = socket(AF_INET, SOCK_DGRAM, 0);
     if (socketfd < 0)
     {
-        LOG(Level::ERROR) << "socket() fail";
+        std::cout << "socket() fail"<<std::endl;;
         exit(1);
     }
     else
     {
-        LOG(Level::INFO) << "socket() succee _socketfd:" << socketfd;
+        std::cout << "socket() succee _socketfd:" << socketfd<<std::endl;
     }
     InetAddr addr((uint16_t)std::stoi(argv[2]), argv[1]);
     thread td_read([&](){

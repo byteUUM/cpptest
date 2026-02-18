@@ -11,9 +11,7 @@
 #include <arpa/inet.h>
 #include <functional>
 #include "InetAddr.hpp"
-#include "Log.hpp"
 using namespace std;
-using namespace my_log;
 using funcType = function<void(int, string, InetAddr)>;
 class task
 {
@@ -48,12 +46,12 @@ public:
         _socketfd = socket(AF_INET, SOCK_DGRAM, 0);
         if (_socketfd < 0)
         {
-            LOG(Level::ERROR) << "socket() fail";
+            std::cout << "socket() fail"<<endl;
             exit(1);
         }
         else
         {
-            LOG(Level::INFO) << "socket() succee _socketfd:" << _socketfd;
+            std::cout << "socket() succee _socketfd:" << _socketfd<<endl;
         }
         sockaddr_in sd;
         bzero(&sd, sizeof(sd));
@@ -66,12 +64,12 @@ public:
         int n = bind(_socketfd, (const sockaddr *)&sd, sizeof(sd));
         if (n < 0)
         {
-            LOG(Level::FATAL) << "bind fial";
+            std::cout << "bind fial"<<std::endl;
             exit(1);
         }
         else
         {
-            LOG(Level::INFO) << "bind success";
+            std::cout << "bind success"<<std::endl;
         }
  
     }

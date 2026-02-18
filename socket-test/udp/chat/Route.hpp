@@ -2,10 +2,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "Log.hpp"
 #include "InetAddr.hpp"
 using namespace std;
-using namespace my_log;
 class Route
 {
 private:
@@ -16,7 +14,7 @@ private:
             if (val == peer) return;
         }
         _data.push_back(peer);
-        LOG(Level::INFO)<<peer.tostring_ip()<<'|'<<peer.tostring_port()<<" online";
+        std::cout<<peer.tostring_ip()<<'|'<<peer.tostring_port()<<" online"<<std::endl;
     }
     bool Pop()
     {
