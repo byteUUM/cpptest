@@ -129,7 +129,7 @@ public:
 		if (subLR) subLR->prev = parent;
 		parent->prev = subL;
 	}
-	void ReverseL(Node* parent)
+	void ReverseL(Node* parent)
 	{
 		Node* subR = parent->right;
 		Node* subRL = subR->left;
