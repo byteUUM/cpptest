@@ -18,9 +18,7 @@ namespace my_blockqueue
         {}
         void Push(T data)
         {
-            //std::lock_guard<std::mutex> lock(_mutex);
             std::unique_lock<std::mutex> lock(_mutex);
-            //_mutex.Lock();
             while (_pnum <= 0)
             {
                 _pcond.wait(lock);
@@ -29,13 +27,10 @@ namespace my_blockqueue
             if (_cnum <= 0)
                 _ccond.notify_one();
             _pnum--, _cnum++;
-            //_mutex.Unlock();
         }
         T Pop()
         {
-            //std::lock_guard<std::mutex> lock(_mutex);
             std::unique_lock<std::mutex> lock(_mutex);
-            //_mutex.Lock();
             while (_cnum <= 0)
             {
                 _ccond.wait(lock);
@@ -45,7 +40,7 @@ namespace my_blockqueue
             if (_pnum <= 0)
                 _pcond.notify_one();
             _cnum--, _pnum++;
-            //_mutex.Unlock();
+
             return ret;
         }
  
