@@ -4,9 +4,9 @@ using namespace std;
 void shell_sort(int* arr,int sz)
 {
     int group = sz;
-    while(group>0)
+    while(group>1)
     {
-        group/=3;
+        group = group/3 + 1;
         for(int i=0;i<sz-group;i++)
         {
             int j = i;
