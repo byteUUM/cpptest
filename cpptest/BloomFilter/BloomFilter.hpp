@@ -36,7 +36,6 @@ struct HashFuncAP
 				hash ^= (~((hash << 11) ^ (s[i]) ^ (hash >> 5)));
 			}
 		}
-
 		return hash;
 	}
 };
@@ -50,7 +49,6 @@ struct HashFuncDJB
 		{
 			hash = hash * 33 ^ ch;
 		}
-
 		return hash;
 	}
 };
@@ -85,7 +83,6 @@ public:
 		if (!_bs.test(hash3)) return false;
 		return true; // 可能存在误判
 	}
-
 	// 获取公式计算出的误判率
 	double getFalseProbability()
 	{
