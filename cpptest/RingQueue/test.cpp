@@ -2,7 +2,7 @@
 // #include <pthread.h>
 #include <thread>
 #include <unistd.h>
-#include "RingQueue3.hpp"
+#include "RingQueue4.hpp"
 using namespace std;
 using namespace RingQueue_Model;
 RingQueue<int> rq(5);
