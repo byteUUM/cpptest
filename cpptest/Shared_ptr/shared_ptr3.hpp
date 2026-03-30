@@ -40,6 +40,14 @@ namespace sptr
         {
             return *_ptr;
         }
+        ~my_shared_ptr()
+        {
+            if(--(*_count)==0)
+            {
+                _del(_ptr);
+                delete _count;
+            }
+        }
     private:
         int* _count;
         T* _ptr;
