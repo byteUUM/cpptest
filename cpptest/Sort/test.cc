@@ -14,14 +14,14 @@
 //     cout<<endl;
 // }
 
-#include "quick2.hpp"
+#include "heap2.hpp"
 using namespace std;
 int main()
 {
     srand((unsigned int)time(nullptr));
     vector<int> arr(100,0);
     for(int i=0;i<100;i++) arr[i] = rand()%1000+i;
-    quick_sort(arr,0,99);
+    heap_sort(arr);
     for(auto x:arr) cout<<x<<" ";
     cout<<endl;
 }
