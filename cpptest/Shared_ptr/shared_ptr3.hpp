@@ -22,6 +22,7 @@ namespace sptr
         }
         my_shared_ptr& operator=(const my_shared_ptr& msp)
         {
+            if(msp._ptr == _ptr) return *this;
             if(--(*_count)==0)
             {
                 _del(_ptr);
@@ -31,6 +32,7 @@ namespace sptr
             ++(*_count);
             _ptr = msp._ptr;
             _del = msp._del;
+            return *this;
         }
         T* operator->()
         {
