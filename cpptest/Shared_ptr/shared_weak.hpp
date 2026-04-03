@@ -72,16 +72,16 @@ public:
 };
 
 // -------- 测试 --------
-int main() {
-    auto* raw = new int(42);
-    shared_ptr<int> sp1(raw);
-    shared_ptr<int> sp2 = sp1;
-    std::cout << *sp1 << " count=" << sp1.use_count() << "\n"; // 42 count=2
+// int main() {
+//     auto* raw = new int(42);
+//     shared_ptr<int> sp1(raw);
+//     shared_ptr<int> sp2 = sp1;
+//     std::cout << *sp1 << " count=" << sp1.use_count() << "\n"; // 42 count=2
 
-    weak_ptr<int> wp(sp1);
-    std::cout << "expired=" << wp.expired() << "\n";           // 0
+//     weak_ptr<int> wp(sp1);
+//     std::cout << "expired=" << wp.expired() << "\n";           // 0
 
-    sp1 = shared_ptr<int>(); sp2 = shared_ptr<int>();          // 释放强引用
-    std::cout << "expired=" << wp.expired() << "\n";           // 1
-    std::cout << "lock valid=" << (bool)wp.lock() << "\n";     // 0
-}
+//     sp1 = shared_ptr<int>(); sp2 = shared_ptr<int>();          // 释放强引用
+//     std::cout << "expired=" << wp.expired() << "\n";           // 1
+//     std::cout << "lock valid=" << (bool)wp.lock() << "\n";     // 0
+// }
