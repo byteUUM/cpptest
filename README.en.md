@@ -1,36 +1,36 @@
-# gitTest
+# 📘 Learning Repository
 
-#### Description
-这是一个git测试仓库
+This repository is used for daily learning and practice. It contains coding exercises, experimental projects, and various technical explorations during my programming journey.
 
-#### Software Architecture
-Software architecture description
+---
 
-#### Installation
+## 🚀 Contents
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+This repository includes (but is not limited to):
 
-#### Instructions
+- 💻 Basic programming exercises (C / C++)
+- 🧠 Data structures and algorithms
+- 🎮 Small projects / demos (e.g., Snake game)
+- 🛠 Linux / Git / development environment practices
+- 📦 Miscellaneous experiments and test code
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+---
 
-#### Contribution
+## 🎯 Purpose
 
-1.  Fork the repository
-2.  Create Feat_xxx branch
-3.  Commit your code
-4.  Create Pull Request
+- 📌 Record the learning process and accumulate knowledge  
+- 📌 Improve programming and engineering skills  
+- 📌 Build project experience and technical depth  
 
+---
 
-#### Gitee Feature
+## 📂 Structure (Example)
 
-1.  You can use Readme\_XXX.md to support different languages, such as Readme\_en.md, Readme\_zh.md
-2.  Gitee blog [blog.gitee.com](https://blog.gitee.com)
-3.  Explore open source project [https://gitee.com/explore](https://gitee.com/explore)
-4.  The most valuable open source project [GVP](https://gitee.com/gvp)
-5.  The manual of Gitee [https://gitee.com/help](https://gitee.com/help)
-6.  The most popular members  [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+```bash
+.
+├── cpp/            # C++ practice
+├── c/              # C practice
+├── data-structure/ # Data structures & algorithms
+├── projects/       # Small projects / demos
+├── linux/          # Linux learning notes
+└── README.md
