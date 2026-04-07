@@ -1,5 +1,6 @@
-#include "shared_ptr4.hpp"
-#include "shared_weak.hpp"
+// #include "shared_ptr4.hpp"
+// #include "shared_weak.hpp"
+#include "shared_ptr5.hpp"
 #include "test.hpp"
 using namespace std;
 struct mm
@@ -7,6 +8,7 @@ struct mm
     int x;
     int y;
 };
+#if 0
 void test1()
 {
     sptr::my_shared_ptr<int> p1 = new int(666);
@@ -47,8 +49,27 @@ void test3() {
     std::cout << "expired=" << wp.expired() << "\n";           // 1
     std::cout << "lock valid=" << (bool)wp.lock() << "\n";     // 0
 }
+#endif
+void test4()
+{
+    sptr::my_shared_ptr<int> p1(new int(666));
+    sptr::my_shared_ptr<int> p2(p1);
+    sptr::my_shared_ptr<int> p3(p1);
+    sptr::my_shared_ptr<int> p4(new int(777));
+    sptr::my_shared_ptr<int> p5 = p4;
+
+    
+    sptr::my_shared_ptr<int> p6(new int(888));
+    sptr::my_shared_ptr<int> p7(move(p6));
+    cout<<*p2<<" "<<*p5<<endl;
+    sptr::my_shared_ptr<mm> p8(new mm({1,2}));
+    cout<<p8->x<<" "<<p8->y<<endl;
+    return;
+}
+
+
 int main()
 {
-    test3();
+    test4();
     return 0;
 }
