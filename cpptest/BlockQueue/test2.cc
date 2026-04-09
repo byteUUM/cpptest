@@ -1,8 +1,10 @@
-#include "BlockQueue4.hpp"
+#include "BlockQueue5.hpp"
 #include <vector>
 #include <string>
 #include <unistd.h>
+#include <thread>
 using namespace std;
+using namespace my_black_queue_model;
 BlockQueue<string> qu;
 void Input(string str)
 {
