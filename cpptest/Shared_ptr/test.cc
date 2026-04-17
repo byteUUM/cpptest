@@ -1,6 +1,6 @@
 // #include "shared_ptr4.hpp"
 // #include "shared_weak.hpp"
-#include "shared_ptr5.hpp"
+#include "shared_ptr6.hpp"
 #include "test.hpp"
 using namespace std;
 struct mm
@@ -50,7 +50,7 @@ void test3() {
     std::cout << "lock valid=" << (bool)wp.lock() << "\n";     // 0
 }
 #endif
-void test4()
+void test()
 {
     sptr::my_shared_ptr<int> p1(new int(666));
     sptr::my_shared_ptr<int> p2(p1);
@@ -66,10 +66,8 @@ void test4()
     cout<<p8->x<<" "<<p8->y<<endl;
     return;
 }
-
-
 int main()
 {
-    test4();
+    test();
     return 0;
 }
