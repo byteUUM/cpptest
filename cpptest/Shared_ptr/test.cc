@@ -1,6 +1,6 @@
 // #include "shared_ptr4.hpp"
 // #include "shared_weak.hpp"
-#include "shared_ptr6.hpp"
+#include "shared_ptr7.hpp"
 #include "test.hpp"
 using namespace std;
 struct mm
