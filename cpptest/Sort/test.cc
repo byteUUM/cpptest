@@ -27,7 +27,7 @@ int main()
 }
 #endif
 
-#include "quick3.hpp"
+#include "quick4.hpp"
 using namespace std;
 int main()
 {
