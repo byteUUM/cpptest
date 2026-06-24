@@ -12,7 +12,7 @@ public:
     using size_type = size_t;
     static const size_type npos = static_cast<size_type>(-1);
 
-    // ==================== 构造 / 析构 ====================
+    // ==================== 构造 / 析构 =================
 
     // 默认构造
     string() : _data(new char[1]{'\0'}), _size(0), _capacity(0) {}
