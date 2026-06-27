@@ -25,7 +25,7 @@ int main()
     for(auto x:arr) cout<<x<<" ";
     cout<<endl;
 }
-#endif
+
 
 #include "heap3.hpp"
 using namespace std;
@@ -35,6 +35,18 @@ int main()
     vector<int> arr(100,0);
     for(int i=0;i<100;i++) arr[i] = rand()%1000+i;
     heap_sort(arr);
+    for(auto x:arr) cout<<x<<" ";
+    cout<<endl;
+}
+#endif
+#include "merger3.hpp"
+using namespace std;
+int main()
+{
+    srand((unsigned int)time(nullptr));
+    vector<int> arr(100,0);
+    for(int i=0;i<100;i++) arr[i] = rand()%1000+i;
+    merger_sort(arr,0,arr.size()-1);
     for(auto x:arr) cout<<x<<" ";
     cout<<endl;
 }
