@@ -3,11 +3,11 @@
 
 namespace rbTree_model
 {
-    enum Color(){RED, BLACK};
+    enum Color{RED, BLACK};
     template<class T>
     struct rbNode
     {
-        rbNode(T& val)
+        rbNode(T val)
         :_left(nullptr)
         ,_right(nullptr)
         ,_parent(nullptr)
@@ -27,9 +27,9 @@ namespace rbTree_model
     private:
         void RotateL(node_t* parent)
         {
-            subR = parent->_right;
-            subRL = subR->_left;
-            pparent = parent->_parent;
+            node_t* subR = parent->_right;
+            node_t* subRL = subR->_left;
+            node_t* pparent = parent->_parent;
 
             parent->_right = subRL;
             subR->_left = parent;
@@ -46,23 +46,23 @@ namespace rbTree_model
         }
         void RotateR(node_t* parent)
         {
-            subL = parent->_left;
-            subLR = subL->_right;
-            pparent = parent->_parent;
+            node_t* subL = parent->_left;
+            node_t* subLR = subL->_right;
+            node_t* pparent = parent->_parent;
 
             parent->_left = subLR;
             subL->_right = parent;
             if(!pparent) _root = subL;
             else
             {
-                if(parent = pparent->_left) pparent->_left = subL;
+                if(parent == pparent->_left) pparent->_left = subL;
                 else pparent->_right = subL;
             }
             subL->_parent = pparent;
             parent->_parent = subL;
             if(subLR) subLR->_parent = parent;
         }
-        bool _IsRBTree(node_t* root,int count, int& pathCount)
+        bool _IsRBTree(node_t* root,int count, int pathCount)
         {
             if(!root) return count==pathCount;
             if(root->_color==BLACK) pathCount++;
@@ -74,16 +74,16 @@ namespace rbTree_model
             return _IsRBTree(root->_left,count,pathCount)&&_IsRBTree(root->_right,count,pathCount);
         }
     public:
-        bool Insert(T& val)
+        bool Insert(T val)
         {
-            node_t newNode = new node_t(val);
+            node_t* newNode = new node_t(val);
             if(!_root)
             {
                 _root = newNode;
                 _root->_color = Color::BLACK;
-                return;
+                return true;
             }
-            node_t cur = _root, parent = nullptr;
+            node_t* cur = _root, *parent = nullptr;
             while(cur)
             {
                 parent = cur;
@@ -96,14 +96,14 @@ namespace rbTree_model
                 }
             }
             if(val<parent->_val) parent->_left = newNode;
-            else parent->_rigth = newNode;
+            else parent->_right = newNode;
             newNode->_parent = parent;
             
             cur = newNode;
             while(parent&&parent->_parent&&parent->_color==Color::RED)
             {
-                pparent = parent->_parent;
-                node_t uncle = nullptr;
+                node_t* pparent = parent->_parent;
+                node_t* uncle = nullptr;
                 if(parent == pparent->_left) uncle = pparent->_right;
                 else uncle = pparent->_left;
 
@@ -150,24 +150,24 @@ namespace rbTree_model
                 }
 
                 cur = pparent;
-                parent = cur->_parent;
+                if(cur) parent = cur->_parent;
             }
-            _root->_color = Color::BRACK;
+            _root->_color = Color::BLACK;
             return true;
         }
         bool IsRBTree()
         {
-            if(!root) return true;
-            if(root->_color == RED) return false;
-            int count = 0;
-            node_t cur = _root;
+            if(!_root) return true;
+            if(_root->_color == RED) return false;
+            int count = 0, pathCount = 0;
+            node_t* cur = _root;
             while(cur)
             {
                 if(cur->_color == BLACK)
                     count++;
                 cur = cur->_left;
             }
-            return _IsRBTree(_root,count,pathCount)&&_isRBTree(_root,count,pathCount)
+            return _IsRBTree(_root,count,pathCount);
         }
     private:
         node_t* _root=nullptr;
