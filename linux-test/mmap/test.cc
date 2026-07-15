@@ -5,7 +5,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-#define PAGE_SIZE 4096
+#define PAGE_SIZE 1024
 int main(int argc, char* argv[])
 {
     if(argc!=2)
