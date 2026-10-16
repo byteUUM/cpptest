@@ -23,7 +23,7 @@ namespace RingQueue_Model
             std::unique_lock<std::mutex> p_lock(_p_mutex);
             sem_wait(&_p_sem);
             _ringqueue[_p_index] = val;
-            _p_index = (_p_index)%_ringqueue.size();
+            _p_index = (_p_index+1)%_ringqueue.size();
             sem_post(&_c_sem);
         }
         T Pop()

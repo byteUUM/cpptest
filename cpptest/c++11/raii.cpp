@@ -53,8 +53,14 @@ void test1()
     shared_ptr<person> wangwu(make_shared<always>());
     wangwu->order_type();
 };
+void test2()
+{
+    auto func = [](FILE* f){fclose(f);};
+    unique_ptr<FILE,decltype(func)> fptr(fopen("file.txt","r"),func);
+    //抛异常
+}
 int main()
 {
-    test1();
+    test2();
     return 0;
 }
