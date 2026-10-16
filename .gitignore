@@ -16,3 +16,24 @@ bin-release/
 # Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
 # should NOT be excluded as they contain compiler settings and other important
 # information for Eclipse / Flash Builder.
+
+# 编译产物：无扩展名的可执行文件 `test`，由同目录源码编译生成，不纳入版本控制。
+# 必须逐个锚定到仓库根路径——不能写裸的 `test` 规则，否则会连带忽略
+# cpptest/test/ 和 linux-test/process_pool/test/ 这两个装着源码的同名目录。
+/cpptest/AVLTree/test
+/cpptest/BitMap/test
+/cpptest/BlockQueue/test
+/cpptest/HashTable/test
+/cpptest/Shared_ptr/test
+/cpptest/c++11/test
+/cpptest/virtual/test
+/ctest/test
+/linux-test/ipc/test
+/linux-test/process_pool/conwy/test
+/linux-test/process_pool/test/test
+/linux-test/signal/test
+/linux-test/thread/test
+/snake/test
+/stl/algorithm/test
+/stltest/test
+/thread/test
